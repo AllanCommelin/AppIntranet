@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' 'unsafe-eval'; media-src *" />-->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+    <title>Hello Jquery</title>
+</head>
+
+<body>
+    <div data-role="page" id="page1">
+    	
+        <div data-role="header" id="header">
+            <img src="img/mmi.svg" alt="logo_mmi" id="logo_mmi">
+        </div><!-- /header -->
+
+        <div data-role="content" id="content_page1">
+            <input class="input_id" name="urcaid"  value="" type="text" placeholder="Identifiant URCA">
+            <p style="margin-top: 30%;">
+                <a data-transition="slide" onclick="loadFonction()" href="#page2" style="text-decoration: none;text-align: center;border-color: transparent;color: rgba(255, 255, 255, 0.8);border-radius: 40px;background-color: rgba(62, 62, 62, 0.47);padding: 4% 20%;font-size: 20px;text-transform: uppercase;font-weight: bolder;">Suivant</a>
+            </p>
+    	</div>
+
+        <!--<div data-role="footer" data-theme="a">
+            <h4>Page Footer</h4>
+        </div>-->
+	</div>
+
+	<div data-role="page" id="page2">
+    	<div data-role="header">
+            <p id="etudinfo"></p>
+        </div><!-- /header -->
+
+        <div data-role="content">
+          <!-- COURS1 -->
+           <div class="cours">
+            <div class="head">
+               <div class="banner1">
+                   <span id="heure_cours" style="float: left;"><span id="h_deb1"></span> - 09:30</span>
+                   <span id="salle_cours1" style="float: right;"></span>
+               </div>
+            </div>
+              <div class="banner2">
+                  <span id="module_cours1" style="float: left;"></span>
+                  <span id="type_cours1" style="float: right;"></span>
+              </div>
+              <div class="main">
+                    <span id="nom_cours1"></span>
+                    <span id="text_cours1"></span>
+                    <span id="prof_cours1"></span>
+              </div>
+            </div>
+            <br><!-- COURS2 -->
+            <div class="cours">
+            <div class="head">
+               <div class="banner1">
+                   <span id="heure_cours" style="float: left;"><span id="h_deb2"></span> - 11:00</span>
+                   <span id="salle_cours2" style="float: right;"></span>
+               </div>
+            </div>
+              <div class="banner2">
+                  <span id="module_cours2" style="float: left;"></span>
+                  <span id="type_cours2" style="float: right;"></span>
+              </div>
+              <div class="main">
+                    <span id="nom_cours2"></span>
+                    <span id="text_cours2"></span>
+                    <span id="prof_cours2"></span>
+              </div>
+            </div>
+            <br><!-- COURS3 -->
+           <div class="cours">
+            <div class="head">
+               <div class="banner1">
+                   <span id="heure_cours" style="float: left;"><span id="h_deb3"></span> - 12:30</span>
+                   <span id="salle_cours3" style="float: right;"></span>
+               </div>
+            </div>
+              <div class="banner2">
+                  <span id="module_cours3" style="float: left;"></span>
+                  <span id="type_cours3" style="float: right;"></span>
+              </div>
+              <div class="main">
+                    <span id="nom_cours3"></span>
+                    <span id="text_cours3"></span>
+                    <span id="prof_cours3"></span>
+              </div>
+            </div>
+            <br><!-- COURS4 -->
+            <div class="cours">
+            <div class="head">
+               <div class="banner1">
+                   <span id="heure_cours" style="float: left;"><span id="h_deb4"></span> - 14:00</span>
+                   <span id="salle_cours4" style="float: right;"></span>
+               </div>
+            </div>
+              <div class="banner2">
+                  <span id="module_cours4" style="float: left;"></span>
+                  <span id="type_cours4" style="float: right;"></span>
+              </div>
+              <div class="main">
+                    <span id="nom_cours4"></span>
+                    <span id="text_cours4"></span>
+                    <span id="prof_cours4"></span>
+              </div>
+            </div>
+            <br><!-- COURS5 -->
+           <div class="cours">
+            <div class="head">
+               <div class="banner1">
+                   <span id="heure_cours" style="float: left;"><span id="h_deb5"></span> - 15:30</span>
+                   <span id="salle_cours5" style="float: right;"></span>
+               </div>
+            </div>
+              <div class="banner2">
+                  <span id="module_cours5" style="float: left;"></span>
+                  <span id="type_cours5" style="float: right;"></span>
+              </div>
+              <div class="main">
+                    <span id="nom_cours5"></span>
+                    <span id="text_cours5"></span>
+                    <span id="prof_cours5"></span>
+              </div>
+            </div>
+            <br><!-- COURS6 -->
+            <div class="cours">
+            <div class="head">
+               <div class="banner1">
+                   <span id="heure_cours" style="float: left;"><span id="h_deb6"></span> - 17:00</span>
+                   <span id="salle_cours6" style="float: right;"></span>
+               </div>
+            </div>
+              <div class="banner2">
+                  <span id="module_cours6" style="float: left;"></span>
+                  <span id="type_cours6" style="float: right;"></span>
+              </div>
+              <div class="main">
+                    <span id="nom_cours6"></span>
+                    <span id="text_cours6"></span>
+                    <span id="prof_cours6"></span>
+              </div>
+            </div>
+            <br><!-- COURS7 -->
+           <div class="cours">
+            <div class="head">
+               <div class="banner1">
+                   <span id="heure_cours" style="float: left;"><span id="h_deb7"></span> - 18:30</span>
+                   <span id="salle_cours7" style="float: right;"></span>
+               </div>
+            </div>
+              <div class="banner2">
+                  <span id="module_cours7" style="float: left;"></span>
+                  <span id="type_cours7" style="float: right;"></span>
+              </div>
+              <div class="main">
+                    <span id="nom_cours7"></span>
+                    <span id="text_cours7"></span>
+                    <span id="prof_cours7"></span>
+              </div>
+            </div>
+            
+            
+            
+            <p><a href="#page1" class="ui-btn ui-shadow ui-corner-all" data-transition="slide" data-direction="reverse">Retour à l'accueil</a></p>
+        </div>
+
+        <div data-role="footer" data-theme="a">
+            <h4>Page Footer</h4>
+        </div><!-- /footer -->
+    </div>
+
+
+    <!--<div data-role="page" id="popup">
+
+        <div data-role="header" data-theme="b">
+            <h1>Dialog</h1>
+        </div><!-- /header -->
+
+        <!--<div role="main" class="ui-content">
+            <h2>Popup</h2>
+            <p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>
+            <p><a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left">Back to page "one"</a></p>
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4>Page Footer</h4>
+        </div><!-- /footer -->
+    <!-- /page popup -->
+    
+    <script>
+        StatusBar.styleLightContent();
+        StatusBar.backgroundColorByName("gray");
+    </script>
+    
+    <script>
+        function loadFonction()
+        {
+            loadEtudInfo();
+            loadEmploiInfo();
+        }
+    </script>
+    <script>
+        // FUNCTION RECUP USER
+        function loadEtudInfo()
+        {
+            if($('input[name=urcaid]').val().length > 0) {
+            
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://intranet.iut-troyes.univ-reims.fr/api/user/' + $('input[name=urcaid]').val(),
+                    dataType: 'json',
+                    success: function (data) {
+                        if(typeof data.nom !== 'undefined') {
+                            $('#etudinfo').text("Bonjour " + toTitleCase(data.prenom) + " " + data.nom);
+                        }
+                        else {
+                            $('#etudinfo').text("Erreur");
+                        }
+                    },
+                    error: function (xhr) {
+                        alert("Une erreur est survenue. Vérifiez votre connexion Internet");
+                    }
+                });
+            }}
+        //FIN DE RECUP USER
+    </script>
+    <script>
+        //DEBUT RECUP EMPLOI DU TEMPS
+        function loadEmploiInfo()
+        {
+            if($('input[name=urcaid]').val().length > 0) {
+        
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://intranet.iut-troyes.univ-reims.fr/api/edtjour/' + $('input[name=urcaid]').val(),
+                    dataType: 'json',
+                    success: function (data) {
+                        //======================Première heure======================
+                        if( typeof data[1].matiere !== 'undefined') {
+                            $("#module_cours1").text(data[1].matiere);
+                            $("#h_deb1").text(data[1].hdebut);
+                            $("#salle_cours1").text(data[1].salle);
+                            $("#type_cours1").text(data[1].type);
+                            $("#nom_cours1").text(data[1].libelle_long);
+                            $("#prof_cours1").text(data[1].prof);
+                            if(data[1].texte !== null){
+                               $("#text_cours1").text(data[1].texte);
+                            }
+                            
+                        } 
+                        else 
+                        { 
+                            $("#nom_cours1").text("Pas de cours à cette heure-ci"); 
+                        }
+                        //======================Deuxième heure======================
+                        if( typeof data[4].matiere !== 'undefined') {
+                            $("#module_cours2").text(data[4].matiere);
+                            $("#h_deb2").text(data[4].hdebut);
+                            $("#salle_cours2").text(data[4].salle);
+                            $("#type_cours2").text(data[4].type);
+                            $("#nom_cours2").text(data[4].libelle_long);
+                            $("#prof_cours2").text(data[4].prof);
+                            if(data[4].texte !== null){
+                               $("#text_cours2").text(data[4].texte);
+                            }
+                        
+                        } 
+                        else 
+                        { 
+                            $("#nom_cours2").text("Pas de cours à cette heure-ci"); 
+                        }
+                        //======================Troisème heure======================
+                        if( typeof data[7].matiere !== 'undefined') {
+                            $("#module_cours3").text(data[7].matiere);
+                            $("#h_deb3").text(data[7].hdebut);
+                            $("#salle_cours3").text(data[7].salle);
+                            $("#type_cours3").text(data[7].type);
+                            $("#nom_cours3").text(data[7].libelle_long);
+                            $("#prof_cours3").text(data[7].prof);
+                            if(data[7].texte !== null){
+                               $("#text_cours3").text(data[7].texte);
+                            }
+                            
+                        } 
+                        else 
+                        { 
+                            $("#nom_cours3").text("Pas de cours à cette heure-ci"); 
+                        }
+                        //======================Quatrième heure======================
+                        if( typeof data[13].matiere !== 'undefined') {
+                            $("#module_cours4").text(data[13].matiere);
+                            $("#h_deb4").text(data[13].hdebut);
+                            $("#salle_cours4").text(data[13].salle);
+                            $("#type_cours4").text(data[13].type);
+                            $("#nom_cours4").text(data[13].libelle_long);
+                            $("#prof_cours4").text(data[13].prof);
+                            if(data[13].texte !== null){
+                               $("#text_cours4").text(data[13].texte);
+                            }
+                            
+                        } 
+                        else 
+                        { 
+                            $("#nom_cours4").text("Pas de cours à cette heure-ci"); 
+                        }
+                        //======================Cinquième heure======================
+                        if( typeof data[16].matiere !== 'undefined') {
+                            $("#module_cours5").text(data[16].matiere);
+                            $("#h_deb5").text(data[16].hdebut);
+                            $("#salle_cours5").text(data[16].salle);
+                            $("#type_cours5").text(data[16].type);
+                            $("#nom_cours5").text(data[16].libelle_long);
+                            $("#prof_cours5").text(data[16].prof);
+                            if(data[16].texte !== null){
+                               $("#text_cours5").text(data[16].texte);
+                            }
+                            
+                        } 
+                        else 
+                        { 
+                            $("#nom_cours5").text("Pas de cours à cette heure-ci"); 
+                        }
+                        //======================Sixième heure======================
+                        if( typeof data[19].matiere !== 'undefined') {
+                            $("#module_cours6").text(data[19].matiere);
+                            $("#h_deb6").text(data[19].hdebut);
+                            $("#salle_cours6").text(data[19].salle);
+                            $("#type_cours6").text(data[19].type);
+                            $("#nom_cours6").text(data[19].libelle_long);
+                            $("#prof_cours6").text(data[19].prof);
+                            if(data[19].texte !== null){
+                               $("#text_cours6").text(data[19].texte);
+                            }
+                            
+                        } 
+                        else 
+                        { 
+                            $("#nom_cours6").text("Pas de cours à cette heure-ci"); 
+                        }
+                        //======================Septième heure======================
+                        if( typeof data[22].matiere !== 'undefined') {
+                            $("#module_cours7").text(data[22].matiere);
+                            $("#h_deb7").text(data[22].hdebut);
+                            $("#salle_cours7").text(data[22].salle);
+                            $("#type_cours7").text(data[22].type);
+                            $("#nom_cours7").text(data[22].libelle_long);
+                            $("#prof_cours7").text(data[22].prof);
+                            if(data[22].texte !== null){
+                               $("#text_cours7").text(data[22].texte);
+                            }
+                            
+                        } 
+                        else 
+                        { 
+                            $("#nom_cours7").text("Pas de cours à cette heure-ci"); 
+                        }
+                        
+                    },
+                    error: function (xhr) {
+                        alert("Une erreur est survenue. Vérifiez votre connexion Internet");
+                    }
+                });
+            }}
+    </script>
+
+    <script>//Converts a string to title case (since some names on the intranet have only the first word capitalized)
+        function toTitleCase(str)
+        {
+            return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+        }
+    </script>
+</body>
+
+</html>
