@@ -73,10 +73,10 @@
 
         <div data-role="content">
           <!-- COURS1 -->
-           <div class="cours">
+           <div class="cours" id="cours_1">
             <div class="head">
                <div class="banner1">
-                   <span id="heure_cours" style="float: left;"><span id="h_deb1"></span> - 09:30</span>
+                   <div  id="heure_cours" style="float: left;"><span id="h_deb1"></span> - <span id="h_fin1"></span></div>
                    <span id="salle_cours1" style="float: right;"></span>
                </div>
             </div>
@@ -91,10 +91,10 @@
               </div>
             </div>
             <br><!-- COURS2 -->
-            <div class="cours">
+            <div class="cours" id="cours_2">
             <div class="head">
                <div class="banner1">
-                   <span id="heure_cours" style="float: left;"><span id="h_deb2"></span> - 11:00</span>
+                   <div  id="heure_cours" style="float: left;"><span id="h_deb2"></span> - <span id="h_fin2"></span></div>
                    <span id="salle_cours2" style="float: right;"></span>
                </div>
             </div>
@@ -109,10 +109,10 @@
               </div>
             </div>
             <br><!-- COURS3 -->
-           <div class="cours">
+           <div class="cours" id="cours_3">
             <div class="head">
                <div class="banner1">
-                   <span id="heure_cours" style="float: left;"><span id="h_deb3"></span> - 12:30</span>
+                   <div  id="heure_cours" style="float: left;"><span id="h_deb3"></span> - <span id="h_fin3"></span></div>
                    <span id="salle_cours3" style="float: right;"></span>
                </div>
             </div>
@@ -127,10 +127,10 @@
               </div>
             </div>
             <br><!-- COURS4 -->
-            <div class="cours">
+            <div class="cours" id="cours_4">
             <div class="head">
                <div class="banner1">
-                   <span id="heure_cours" style="float: left;"><span id="h_deb4"></span> - 14:00</span>
+                   <div  id="heure_cours" style="float: left;"><span id="h_deb4"></span> - <span id="h_fin4"></span></div>
                    <span id="salle_cours4" style="float: right;"></span>
                </div>
             </div>
@@ -145,10 +145,10 @@
               </div>
             </div>
             <br><!-- COURS5 -->
-           <div class="cours">
+           <div class="cours" id="cours_5">
             <div class="head">
                <div class="banner1">
-                   <span id="heure_cours" style="float: left;"><span id="h_deb5"></span> - 15:30</span>
+                   <div  id="heure_cours" style="float: left;"><span id="h_deb5"></span> - <span id="h_fin5"></span></div>
                    <span id="salle_cours5" style="float: right;"></span>
                </div>
             </div>
@@ -163,10 +163,10 @@
               </div>
             </div>
             <br><!-- COURS6 -->
-            <div class="cours">
+            <div class="cours" id="cours_6">
             <div class="head">
                <div class="banner1">
-                   <span id="heure_cours" style="float: left;"><span id="h_deb6"></span> - 17:00</span>
+                   <div  id="heure_cours" style="float: left;"><span id="h_deb6"></span> - <span id="h_fin6"></span></div>
                    <span id="salle_cours6" style="float: right;"></span>
                </div>
             </div>
@@ -181,10 +181,10 @@
               </div>
             </div>
             <br><!-- COURS7 -->
-           <div class="cours">
+           <div class="cours" id="cours_7">
             <div class="head">
                <div class="banner1">
-                   <span id="heure_cours" style="float: left;"><span id="h_deb7"></span> - 18:30</span>
+                   <div  id="heure_cours" style="float: left;"><span id="h_deb7"></span> - <span id="h_fin7"></span></div>
                    <span id="salle_cours7" style="float: right;"></span>
                </div>
             </div>
@@ -279,6 +279,7 @@
                         if( typeof data[1].matiere !== 'undefined') {
                             $("#module_cours1").text(data[1].matiere);
                             $("#h_deb1").text(data[1].hdebut);
+                            $("#h_fin1").text(data[1].hfin);
                             $("#salle_cours1").text(data[1].salle);
                             $("#type_cours1").text(data[1].type);
                             $("#nom_cours1").text(data[1].libelle_long);
@@ -289,13 +290,15 @@
                             
                         } 
                         else 
-                        { 
-                            $("#nom_cours1").text("Pas de cours à cette heure-ci"); 
+                        {
+                            $("#cours_1").css("display","none")
+                            //$("#nom_cours1").text("Pas de cours à cette heure-ci"); 
                         }
                         //======================Deuxième heure======================
                         if( typeof data[4].matiere !== 'undefined') {
                             $("#module_cours2").text(data[4].matiere);
                             $("#h_deb2").text(data[4].hdebut);
+                            $("#h_fin2").text(data[4].hfin);
                             $("#salle_cours2").text(data[4].salle);
                             $("#type_cours2").text(data[4].type);
                             $("#nom_cours2").text(data[4].libelle_long);
@@ -306,13 +309,15 @@
                         
                         } 
                         else 
-                        { 
-                            $("#nom_cours2").text("Pas de cours à cette heure-ci"); 
+                        {
+                            $("#cours_2").css("display","none")
+                            //$("#nom_cours2").text("Pas de cours à cette heure-ci"); 
                         }
                         //======================Troisème heure======================
                         if( typeof data[7].matiere !== 'undefined') {
                             $("#module_cours3").text(data[7].matiere);
                             $("#h_deb3").text(data[7].hdebut);
+                            $("#h_fin3").text(data[7].hfin);
                             $("#salle_cours3").text(data[7].salle);
                             $("#type_cours3").text(data[7].type);
                             $("#nom_cours3").text(data[7].libelle_long);
@@ -323,13 +328,15 @@
                             
                         } 
                         else 
-                        { 
-                            $("#nom_cours3").text("Pas de cours à cette heure-ci"); 
+                        {
+                            $("#cours_3").css("display","none")
+                            //$("#nom_cours3").text("Pas de cours à cette heure-ci"); 
                         }
                         //======================Quatrième heure======================
                         if( typeof data[13].matiere !== 'undefined') {
                             $("#module_cours4").text(data[13].matiere);
                             $("#h_deb4").text(data[13].hdebut);
+                            $("#h_fin4").text(data[13].hfin);
                             $("#salle_cours4").text(data[13].salle);
                             $("#type_cours4").text(data[13].type);
                             $("#nom_cours4").text(data[13].libelle_long);
@@ -340,13 +347,15 @@
                             
                         } 
                         else 
-                        { 
-                            $("#nom_cours4").text("Pas de cours à cette heure-ci"); 
+                        {
+                            $("#cours_4").css("display","none")
+                            //$("#nom_cours4").text("Pas de cours à cette heure-ci"); 
                         }
                         //======================Cinquième heure======================
                         if( typeof data[16].matiere !== 'undefined') {
                             $("#module_cours5").text(data[16].matiere);
                             $("#h_deb5").text(data[16].hdebut);
+                            $("#h_fin5").text(data[16].hfin);
                             $("#salle_cours5").text(data[16].salle);
                             $("#type_cours5").text(data[16].type);
                             $("#nom_cours5").text(data[16].libelle_long);
@@ -357,13 +366,15 @@
                             
                         } 
                         else 
-                        { 
-                            $("#nom_cours5").text("Pas de cours à cette heure-ci"); 
+                        {
+                            $("#cours_5").css("display","none")
+                            //$("#nom_cours5").text("Pas de cours à cette heure-ci"); 
                         }
                         //======================Sixième heure======================
                         if( typeof data[19].matiere !== 'undefined') {
                             $("#module_cours6").text(data[19].matiere);
                             $("#h_deb6").text(data[19].hdebut);
+                            $("#h_fin6").text(data[19].hfin);
                             $("#salle_cours6").text(data[19].salle);
                             $("#type_cours6").text(data[19].type);
                             $("#nom_cours6").text(data[19].libelle_long);
@@ -374,13 +385,15 @@
                             
                         } 
                         else 
-                        { 
-                            $("#nom_cours6").text("Pas de cours à cette heure-ci"); 
+                        {
+                            $("#cours_6").css("display","none")
+                            //$("#nom_cours6").text("Pas de cours à cette heure-ci"); 
                         }
                         //======================Septième heure======================
                         if( typeof data[22].matiere !== 'undefined') {
                             $("#module_cours7").text(data[22].matiere);
                             $("#h_deb7").text(data[22].hdebut);
+                            $("#h_fin7").text(data[22].hfin);
                             $("#salle_cours7").text(data[22].salle);
                             $("#type_cours7").text(data[22].type);
                             $("#nom_cours7").text(data[22].libelle_long);
@@ -391,8 +404,9 @@
                             
                         } 
                         else 
-                        { 
-                            $("#nom_cours7").text("Pas de cours à cette heure-ci"); 
+                        {
+                            $("#cours_7").css("display","none")
+                            //$("#nom_cours7").text("Pas de cours à cette heure-ci"); 
                         }
                         
                     },
